@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome @Session["username"]</h2>
+
+<!-- Creating a Logout Option -->
+@Html.ActionLink("Logout","Logout","Login")
+

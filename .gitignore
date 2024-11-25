@@ -1,0 +1,52 @@
+# Visual Studio files
+.vs/
+*.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.log
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Visual Studio Code files
+.vscode/
+
+# Rider files
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Other files
+*.db
+*.pdb
+*.mdb
+*.cache
+*.zip
+*.tar
+*.gz
+*.tgz
+*.rar
+*.7z
+
+# Ignore specific files
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json

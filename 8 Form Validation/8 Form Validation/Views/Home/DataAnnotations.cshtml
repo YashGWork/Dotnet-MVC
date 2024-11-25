@@ -1,0 +1,90 @@
+﻿@model _8_Form_Validation.Models.Employee
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Site.css")" />
+
+@{
+    ViewBag.Title = "DataAnnotations";
+}
+
+<h2>DataAnnotations</h2>
+
+@using (Html.BeginForm())
+{
+
+    <p>
+        @Html.LabelFor(Model => Model.OrganizationName)
+        &nbsp;
+        @Html.TextBoxFor(Model => Model.OrganizationName, new { @Value = "Altudo", @readonly = true })
+        <!-- readonly=true CSS property will not allow  the textbox to be modified -->
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.EmployeeId)
+        &nbsp;
+        @Html.TextBoxFor(Model => Model.EmployeeId)
+
+        @Html.ValidationMessageFor(Model => Model.EmployeeId, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.EmployeeName)
+        &nbsp;
+        @Html.TextBoxFor(Model => Model.EmployeeName)
+
+        @Html.ValidationMessageFor(Model => Model.EmployeeName, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.EmpJoiningDate)
+        &nbsp;
+        @Html.EditorFor(Model => Model.EmpJoiningDate)
+
+        @Html.ValidationMessageFor(Model => Model.EmpJoiningDate, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.EmployeeAge)
+        &nbsp;
+        @Html.TextBoxFor(Model => Model.EmployeeAge)
+
+        @Html.ValidationMessageFor(Model => Model.EmployeeAge, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.EmployeeGender)
+        &nbsp;
+        @Html.TextBoxFor(Model => Model.EmployeeGender)
+
+        @Html.ValidationMessageFor(Model => Model.EmployeeGender, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.EmployeeEmail)
+        &nbsp;
+        @Html.TextBoxFor(Model => Model.EmployeeEmail)
+
+        @Html.ValidationMessageFor(Model => Model.EmployeeEmail, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.Password)
+        &nbsp;
+        @Html.PasswordFor(Model => Model.Password)
+
+        @Html.ValidationMessageFor(Model => Model.Password, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <p>
+        @Html.LabelFor(Model => Model.ConfirmPassword)
+        &nbsp;
+        @Html.PasswordFor(Model => Model.ConfirmPassword)
+
+        @Html.ValidationMessageFor(Model => Model.ConfirmPassword, "", new { style = "color: red; font-size: 12px;" })
+    </p>
+
+    <input type="submit" value="Sign In" />
+
+}
+
+<!-- Displaying Form Submitted succesfully -->
+@Html.Raw(ViewBag.Msg)

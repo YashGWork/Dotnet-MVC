@@ -1,0 +1,51 @@
+﻿@using _10_Login_Form_using_Session_and_EF.Models;
+
+@model LoginTableDB
+
+@{
+    ViewBag.Title = "Index"; // Set the title of the page
+}
+
+<h2>Index</h2>
+
+<!-- Creating Form using Bootstrap Grid classes -->
+<div class="row">
+    <div class="col-md-3 col-md-offset-4">
+        <div style="border: 5px black ridge; padding: 10px; width: 300px;">
+            <!-- Begin the form, specifying the action method and controller -->
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+            {
+                <table height="200">
+                    <thead>
+                        <tr>
+                            <th colspan="2" class="text-center" style="font-size: 25px;">Login</th>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(model => model.username)</td>
+                            <td>
+                                @Html.TextBoxFor(model => model.username, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(model => model.password)</td>
+                            <td>
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                <p class="text-danger">@ViewBag.ErrorMessage</p> <!-- Display error message if login fails -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Login" name="login" class="btn btn-primary" />
+                                <!-- Creating a Reset field option -->
+                                <a href="/Login/Reset" class="btn btn-danger">Reset</a>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "User Form";
+}
+
+<nav>
+    <ul>
+        <!-- Html.ActionLink("Link Text", "ActionName", "ControllerName", new { id = 1 }, null)
+
+        Will Generate
+
+        <a href="/">Link Text</a> referring to the ActionMethod Action
+    -->
+        <li>@Html.ActionLink("Home Page", "Index", "Home")</li>
+        <li>@Html.ActionLink("About Us", "AboutUs", "Home")</li>
+        <li>@Html.ActionLink("Contact Us", "ContactUs", "Home")</li>
+    </ul>
+</nav>
+
+<h2>User Form</h2>
+
+<!-- Begin form to submit user details -->
+@using (Html.BeginForm("Submit", "User")) // "Submit" action in "User" controller
+{
+    <!-- TextBox: Text input for First Name -->
+    <div style="margin: 0.5rem 0;">
+        @Html.Label("FirstName", "First Name:")
+        @Html.TextBox("FirstName", "Yash", new {@class = "form-control" }) <!-- Initial value is "Yash" -->
+        <!-- Generates: <input type="text" name="FirstName" id="FirstName" value="John" /> -->
+    </div>
+
+    <!-- Password: Password input for Password -->
+     <div style="margin: 0.5rem 0;">
+        @Html.Label("Password", "Password:")
+        @Html.Password("Password") <!-- No initial value for security -->
+        <!-- Generates: <input type="password" name="Password" id="Password" /> -->
+    </div>
+
+    <!-- Hidden: Hidden input for UserId -->
+     <div style="margin: 0.5rem 0;">
+        @Html.Hidden("UserId", "123") <!-- Initial value is "123" -->
+        <!-- Generates: <input type="hidden" name="UserId" id="UserId" value="123" /> -->
+    </div>
+
+    <!-- DropDownList: Dropdown for Country selection -->
+     <div style="margin: 0.5rem 0;">
+        @Html.Label("Country", "Country:")
+        @Html.DropDownList("Country", new SelectList(new[] { "India", "USA", "UK" }),"Select the country")gg
+        <!-- Generates:
+             <select name="Country" id="Country">
+                 <option>India</option>
+                 <option>USA</option>
+                 <option>UK</option>
+             </select>
+        -->
+    </div>
+
+    <!-- RadioButton: Radio buttons for Gender selection -->
+     <div style="margin: 0.5rem 0;">
+        @Html.Label("Gender", "Gender:")
+        @Html.RadioButton("Gender", "Male") Male
+        @Html.RadioButton("Gender", "Female") Female
+        <!-- Generates:
+             <input type="radio" name="Gender" id="Gender" value="Male" /> Male
+             <input type="radio" name="Gender" id="Gender" value="Female" /> Female
+        -->
+    </div>
+
+    <!-- CheckBox: Checkbox to agree to terms -->
+     <div style="margin: 0.5rem 0;">
+        @Html.Label("AgreeToTerms", "I Agree to the Terms and Conditions:")
+        @Html.CheckBox("AgreeToTerms", false) <!-- Not checked by default -->
+        <!-- Generates:
+             <input type="checkbox" name="AgreeToTerms" id="AgreeToTerms" />
+        -->
+    </div>
+
+    <!-- TextArea: Text area for Comments -->
+     <div style="margin: 0.5rem 0;">
+        @Html.Label("Comments", "Comments:")
+        @Html.TextArea("Comments", "Your comments here",5,4,null)
+        <!-- Generates:
+             <textarea name="Comments" id="Comments">Your comments here,rowsize,colsize,attributes</textarea>
+        -->
+    </div>
+
+    <!-- Submit Button: Submit form data -->
+     <div style="margin: 0.5rem 0;">
+        <button type="submit">Submit</button>
+        <!-- Generates: <input type="submit" value="Submit" /> -->
+    </div>
+}

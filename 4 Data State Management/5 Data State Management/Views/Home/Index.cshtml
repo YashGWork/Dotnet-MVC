@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    // Storing model data in a variable (TypeCasting required)
+    var emp = (_5_Data_State_Management.Models.Employee)ViewData["emp"];
+}
+
+<h2>Index</h2>
+
+<!-- Model object passing using ViewData-->
+<p> Employee Details: </p>
+<ul>
+    <li>Name: @emp.Name</li>
+    <li>Designation: @emp.Designation</li>
+    <li>ID: @emp.EmployeeID</li>
+    <li>Salary: @emp.Salary</li>
+    <li>YOE: @emp.YOE</li>
+</ul>
+
+<!-- Array passing using ViewData-->
+<p> To learn: </p>
+<ul>
+    @{
+        // Typecasting required
+        foreach (string i in (string[])ViewData["course"])
+        {
+            if (i != null)
+            {
+                <li>@i</li>
+            }
+        }
+    }
+</ul>
+
+<!-- Array passing using ViewBag-->
+<p>Tools to be used: </p>
+<ul>
+    @{
+        // No Typecasting required
+        foreach (string i in ViewBag.Tools)
+        {
+            if (i != null)
+            {
+                <li>@i</li>
+
+            }
+        }
+    }
+</ul>
+
+@*Accessing ViewData, ViewBag and TempData Message*@
+
+<p>ViewData Message: @ViewData["VDMessage"]</p>
+
+<p>ViewBag Message:@ViewBag.VBMessage</p>
+
+<p>TempData Message: @TempData["TDMessage"]</p>
+
+<!-- Accessing ViewBag data using ViewData -->
+
+<p> ViewBag data accessed by ViewData: @ViewData["CommonMessage"] </p>
+
+<p> ViewBag data accessed by ViewBag: @ViewBag.CommonMessage </p>
+

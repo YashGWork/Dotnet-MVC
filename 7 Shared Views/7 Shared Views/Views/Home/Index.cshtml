@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p> Rendering Parital view using Html.Partial() method</p>
+<!-- Using Partial Method-->
+
+@Html.Partial("_PartialView")
+
+<br />
+<br />
+
+<p> Rendering Parital view using Html.RenderPartial() method</p>
+
+<!-- Using Render Partial Method-->
+
+@{
+    Html.RenderPartial("_PartialView");
+}
+

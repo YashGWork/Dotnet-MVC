@@ -1,0 +1,42 @@
+﻿@using _7_Shared_Views.Models;
+
+<!-- Using Model object -->
+@model _7_Shared_Views.Models.Employee
+
+@{
+    ViewBag.Title = "StronglyTypedView";
+}
+
+<h2>StronglyTypedView</h2>
+
+@{
+    var VDemp = (Employee)ViewData["Var1"];
+    var VBemp = ViewBag.Var2;
+}
+
+<p> Data using ViewData: </p>
+<ul>
+    <li>@VDemp.Name</li>
+    <li>@VDemp.Designation</li>
+    <li>@VDemp.Id</li>
+    <li>@VDemp.Salary</li>
+</ul>
+
+<p> Data using ViewBag: </p>
+<ul>
+    <li>@VBemp.Name</li>
+    <li>@VBemp.Designation</li>
+    <li>@VBemp.Id</li>
+    <li>@VBemp.Salary</li>
+</ul>
+
+<p> Data from Strongly Typed Views: </p>
+<ul>
+    <li>@Model.Name</li>
+    <li>@Model.Designation</li>
+    <li>@Model.Id</li>
+    <li>@Model.Salary</li>
+</ul>
+
+
+@Html.Partial("_PartialView")

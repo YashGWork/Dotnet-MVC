@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!-- Inline Expression Statements-->
+
+<p> Today Date and Time is : @DateTime.Now</p>
+
+<p> This year is @DateTime.Now.Year</p>
+
+<!-- Declaring variables in C# -->
+
+@{
+    string b = "This is a tutorial on Razor view syntax";
+    var TodaysTime = DateTime.Now.ToLongTimeString();
+}
+
+<strong> @b </strong>
+<p> Current time is : @TodaysTime </p>
+
+<!-- Using Conditional Statements -->
+
+@{
+    int age = 20;
+
+    if (age > 18)
+    {
+        <p style="color: green;"> You can vote! </p>
+    }
+    else
+    {
+        <p style="color: red;"> You can't vote !</p>
+    }
+}
+
+
+<!-- Using for loops -->
+
+<p> Printing count 1 to 5 using for loops</p>
+
+@{
+    for (int i = 1; i <= 5; i++)
+    {
+        <p>@i</p>
+    }
+}
+
+@{
+    string[] array = { "CSharp", ".NET MVC", "SQL", "LINQ" };
+
+    foreach (string i in array)
+    {
+        <p> Learn @i</p>
+    }
+
+
+}

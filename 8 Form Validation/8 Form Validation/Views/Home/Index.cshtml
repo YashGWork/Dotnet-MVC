@@ -1,0 +1,65 @@
+﻿<!-- Link to external CSS file for styling the page -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Site.css")" />
+
+@{
+    ViewBag.Title = "Index";  // Sets the title of the page in the browser
+}
+
+<h2>Index</h2>
+
+<!-- Display validation summary at the top of the form
+     If there are any validation errors in ModelState, they will be displayed here.
+     This provides users with a list of all validation messages in one place. -->
+<p>
+    @Html.ValidationSummary("", new { style = "color: red;" })
+</p>
+
+<!-- Begin the form block. Html.BeginForm() generates a <form> tag that
+     automatically posts data to the current action (Index). -->
+@using (Html.BeginForm())
+{
+    <p>
+        <!-- Input field for FullName -->
+        Enter Name: @Html.TextBox("FullName")
+
+        <!-- Display a red asterisk next to the FullName field if there’s an error -->
+        <b style="color: red;">@ViewBag.FNErrorMsg</b>
+
+        <!-- Optionally, Html.ValidationMessage can also display the validation message for FullName in red.
+             This is commented out here, but can be used as an alternative to ViewBag error indicators.
+             Uncomment this line if you want individual field validation messages instead. -->
+        @*@Html.ValidationMessage("FullName", new {style="color: red; font-size: 10px;"})*@
+    </p>
+
+    <p>
+        <!-- Input field for Age -->
+        Enter Age: @Html.TextBox("Age")
+
+        <!-- Display a red asterisk next to the Age field if there’s an error -->
+        <b style="color: red;">@ViewBag.AErrorMsg</b>
+
+        <!-- Alternative way to display the validation message for Age, currently commented out.
+             Html.ValidationMessage would show validation error messages for this specific field. -->
+        @*@Html.ValidationMessage("Age", new { style = "color: red; font-size: 10px;" })*@
+    </p>
+
+    <p>
+        <!-- Input field for Email -->
+        Enter Email: @Html.TextBox("Email")
+
+        <!-- Display a red asterisk next to the Email field if there’s an error -->
+        <b style="color: red;">@ViewBag.EErrorMsg</b>
+
+        <!-- Another alternative to show individual field validation messages. Uncomment to use.
+             Html.ValidationMessage for Email will display the validation message for Email specifically. -->
+        @*@Html.ValidationMessage("Email", new { style = "color: red; font-size: 10px;" })*@
+    </p>
+
+    <!-- Submit button to post the form data -->
+    <input type="submit" value="Submit" />
+
+    <!-- Render any success or status message set by the controller using Html.Raw()
+         This allows the StatusMsg (JavaScript alert) from the ViewBag to be rendered as raw HTML,
+         displaying a success message alert if form submission was successful. -->
+    @Html.Raw(ViewBag.StatusMsg)
+}

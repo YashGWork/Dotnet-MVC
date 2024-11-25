@@ -1,0 +1,36 @@
+﻿@model _6_Html_Helpers.Models.SignUp
+
+<link rel="stylesheet" type="text/css" href="@Url.Content("./Content/Site.css")"/>
+
+@{
+    ViewBag.Title = "StronglyTypedHtmlHelpers";
+}
+
+<!-- We can use any lamda parameter for Model like m, item, username as they will be referring to the same instance of the model -->
+
+<h2>StronglyTypedHtmlHelpers</h2>
+    @using (Html.BeginForm())
+    {
+
+        // Lambda expression is referring to sign up class and binding LabelFor and TextboxFor with UserName of the SignUp class
+        <p>@Html.LabelFor(Model => Model.UserName) &nbsp; @Html.TextBoxFor(Model => Model.UserName)</p>
+
+        // Binding SignUp class UserPassword field with LabelFor and PasswordFor
+        <p>@Html.LabelFor(Model => Model.UserPassword) &nbsp; @Html.PasswordFor(Model => Model.UserPassword)</p>
+
+
+        // Binding SignUp class UserGender field with LabelFor and DropDownListFor
+        <p>@Html.LabelFor(Model => Model.UserGender) &nbsp; @Html.DropDownListFor(Model => Model.UserGender, new SelectList(new[] { "Male", "Female" }), "Select")</p>
+
+        // Binding SignUp class UserEmail field with LabelFor and TextBoxFor
+        <p>@Html.LabelFor(Model => Model.UserEmail) &nbsp; @Html.TextBoxFor(Model => Model.UserEmail)</p>
+
+        // Binding SignUp class UserComment field with LabelFor and TextAreaFor
+        <p>@Html.LabelFor(Model => Model.UserComment) &nbsp; @Html.TextAreaFor(Model => Model.UserComment)</p>
+
+        // Binding SignUp class UserId to HiddenFor method (Is not visible in the browser)
+        @Html.HiddenFor(Model => Model.UserId)
+
+
+        <input type="submit" value="Submit" />
+    }

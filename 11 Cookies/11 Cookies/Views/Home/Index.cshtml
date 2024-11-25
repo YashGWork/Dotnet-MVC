@@ -1,0 +1,31 @@
+﻿@model _11_Cookies.Models.User
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index","Home",FormMethod.Post))
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.LabelFor(model => model.Username)
+                             </th>
+                            <th>
+                                @Html.TextBoxFor(model => model.Username, "", new { @class = "form-control" })
+
+                                @Html.ValidationMessageFor(model=>model.Username, "" ,new {@class = "text-danger"})
+                            </th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input  type="Submit" value="Submit" class="btn btn-info">
+                        </td>
+                    </tr>
+                </table>
+            }

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<p>ViewData: @ViewData["Var1"]</p>
+<p>ViewBag: @ViewBag.Var2</p>
+<p>TempData: @TempData["Var3"]</p>
+<p> Session: @Session["Data"]</p>
+
+<p>Ways to pass data from controller to view</p>
+<ul>
+    @{
+        // Typecasting required for Session
+        if (Session["DataMangement"] != null)
+        {
+            foreach (string i in (string[])Session["DataMangement"])
+            {
+                <li> @i  </li>
+            }
+        }
+    }
+</ul>
+

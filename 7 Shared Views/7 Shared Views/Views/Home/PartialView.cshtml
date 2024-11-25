@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "PartialView";
+}
+
+<h2>PartialView</h2>
+
+<!-- Returns a string -->
+
+@{
+    var partialviewstring = Html.Partial("_PartialView");
+
+    // We can modify the string returned by Html.Partial method if required
+    partialviewstring = new MvcHtmlString("<p>Added sentence in returned Html.Partial string</p>" + partialviewstring);
+
+}
+
+@partialviewstring
+
+@{
+    // Returns void
+Html.RenderPartial("_PartialView");
+}

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Next";
+}
+
+<h2>Next</h2>
+
+@*Accessing ViewData, ViewBag and TempData Message*@
+
+<!-- ViewData,ViewBag Message can't be accessed in the subsequent request-->
+
+
+<p>ViewData Message: @ViewData["VDMessage"]</p>
+
+<p>ViewBag Message:@ViewBag.VBMessage</p>
+
+
+<!-- TempData Message will only be visible even if localhost/Home/Next is the subsequent request-->
+
+<p>TempData Message: @TempData["TDMessage"]</p>
+
+
