@@ -1,0 +1,88 @@
+﻿@model IEnumerable<_14_Search_Functionality.Models.emp>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<!-- The form will get the data using HTTP Get method -->
+<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <b> Search by: </b>
+        // Same name "searchBy" is used to group the two radio buttons
+
+        // Name should be checked by default that's why third parameter true as given
+        @Html.RadioButton("searchBy", "Name", true) <text> Name </text>
+
+        @Html.RadioButton("searchBy", "Gender") <span> Gender </span>
+
+        // TextBox to search by user input
+        @Html.TextBox("search") <input type="submit" value="Search" />
+
+    }
+</div>
+
+<div class="m-2">@Html.ActionLink("Back to Index", "Index", "Home")</div>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.designation)
+        </th>
+        <th></th>
+    </tr>
+
+
+    <!-- If no rows are present in the Model -->
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="4" class="text-center text-danger">
+                No Rows Found
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.designation)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    }
+
+
+
+</table>
