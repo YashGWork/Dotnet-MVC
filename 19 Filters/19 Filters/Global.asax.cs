@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +14,14 @@ namespace _19_Filters
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //Adding Exception filter globally
+            //GlobalFilters.Filters.Add (new HandleErrorAttribute());
+
+            //Adding Exception filter globally with a new Error view (default is Error.cshtml)
+            GlobalFilters.Filters.Add(new HandleErrorAttribute() { View = "Error2" });
+
         }
+
     }
 }

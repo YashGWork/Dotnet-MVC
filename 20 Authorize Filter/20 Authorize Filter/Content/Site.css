@@ -1,0 +1,89 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+ul>li{
+    list-style-type: none;
+    color: white;
+}
+
+ul > li > a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul > li > a:hover{
+    text-decoration: underline;
+}
+
+ul{
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+.navbar-header {
+    display: flex;
+    align-items: center;
+    background-color: gray;
+    padding: 2rem;
+    margin: 0 1rem;
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-around;
+}
+
+
+.navbar-header > a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-header > a:hover {
+        text-decoration: underline;
+}
+
+.body-content{
+  margin: 2rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;s
+}
+
+.links {
+    width: 35%;
+    --bs-nav-link-padding-x: 0;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight:;
+    --bs-nav-link-color: var(--bs-navbar-color);
+    --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
